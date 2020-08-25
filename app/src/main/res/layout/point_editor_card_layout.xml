@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardElevation="0dp"
     app:contentPaddingBottom="8dp"
     app:contentPaddingTop="16dp"
+    app:strokeColor="@color/material_on_surface_stroke"
+    app:strokeWidth="1dp"
     tools:layout_marginEnd="@dimen/horizontal_margin"
     tools:layout_marginStart="@dimen/horizontal_margin"
     tools:layout_marginTop="16dp">
@@ -45,37 +48,31 @@
             app:layout_constraintTop_toBottomOf="@+id/point"
             tools:text="100+50" />
 
-        <Button
-            android:id="@+id/a_large_tichu_checked_text_view"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/plus_point_button"
+            style="?attr/borderlessButtonStyle"
+            android:minWidth="48dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:text="@string/large_tichu"
+            android:text="@string/plus_hundred"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/a_small_tichu_checked_text_view"
+            app:layout_constraintEnd_toStartOf="@id/minus_point_button"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/point_description" />
 
-        <Button
-            android:id="@+id/a_small_tichu_checked_text_view"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/minus_point_button"
+            android:minWidth="48dip"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_height="wrap_content"
-            android:text="@string/small_tichu"
-            app:layout_constraintBaseline_toBaselineOf="@id/a_large_tichu_checked_text_view"
-            app:layout_constraintEnd_toStartOf="@id/a_one_two_tichu_checked_text_view"
-            app:layout_constraintStart_toEndOf="@id/a_large_tichu_checked_text_view" />
+            android:text="@string/minus_hundred"
+            app:layout_constraintBaseline_toBaselineOf="@id/plus_point_button"
+            app:layout_constraintStart_toEndOf="@id/plus_point_button" />
 
-        <Button
-            android:id="@+id/a_one_two_tichu_checked_text_view"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/one_two"
-            app:layout_constraintBaseline_toBaselineOf="@id/a_large_tichu_checked_text_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/a_small_tichu_checked_text_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

@@ -5,14 +5,12 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import kr.minchulkim.tichucalculator.domain.repository.GameRepository
 import kr.minchulkim.tichucalculator.entity.Game
+import javax.inject.Inject
 
-class AddGameUseCase(
+class AddGameUseCase @Inject constructor(
     private val gameRepository: GameRepository
 ) : UseCase<Game, Unit> {
 
-    override suspend fun run(params: Game) = withContext(Dispatchers.Default) {
-        gameRepository.addGame(params)
-    }
-
+    override suspend fun run(params: Game) = gameRepository.addGame(params)
 
 }

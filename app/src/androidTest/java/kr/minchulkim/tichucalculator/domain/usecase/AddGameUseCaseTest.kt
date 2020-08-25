@@ -32,7 +32,7 @@ class AddGameUseCaseTest : TestCase() {
     fun testBuildUseCaseFlowable() = runBlocking {
         val addGameUseCase = AddGameUseCase(gameRepository = GameRepoImpl(database.gameDao()))
         val costTimeMillis = measureTimeMillis {
-            val params = Game.create(true, 70)
+            val params = Game.create(70 )
             addGameUseCase.run(params)
             val list = withContext(Dispatchers.Default) {
                 database.gameDao().loadAllGames().first()

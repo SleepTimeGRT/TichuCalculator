@@ -1,27 +1,25 @@
 package kr.minchulkim.tichucalculator.data
 
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import kr.minchulkim.tichucalculator.data.room.GameDao
 import kr.minchulkim.tichucalculator.domain.repository.GameRepository
 import kr.minchulkim.tichucalculator.entity.Game
+import javax.inject.Inject
 
-class GameRepoImpl(private val gameDao: GameDao) : GameRepository {
+class GameRepoImpl @Inject constructor(private val gameDao: GameDao) : GameRepository {
 
-    override suspend fun addGame(game: Game) = withContext(Dispatchers.IO) {
-        gameDao.insertGame(game)
-    }
+    override suspend fun addGame(game: Game) = gameDao.insertGame(game)
+    override fun addGame2(game: Game) = gameDao.insertGame2(game).subscribeOn(Schedulers.io())
 
-    override suspend fun deleteGame(gameId: Long) = withContext(Dispatchers.IO) {
-        gameDao.deleteGame(gameId)
-    }
+    override suspend fun deleteGame(gameId: Long) = gameDao.deleteGame(gameId)
 
-    override suspend fun clearGames() = withContext(Dispatchers.IO) {
-        gameDao.deleteAll()
-    }
+    override suspend fun clearGames() = gameDao.deleteAll()
 
-    override suspend fun getGameListFlow(): Flow<List<Game>> = withContext(Dispatchers.IO) {
-        gameDao.loadAllGames()
-    }
+    override fun getGameListFlow(): Flow<List<Game>> = gameDao.loadAllGames().flowOn(Dispatchers.IO)
+    override fun getGameListObservable(): Observable<List<Game>> = gameDao.loadAllGames2().subscribeOn(Schedulers.io())
 }

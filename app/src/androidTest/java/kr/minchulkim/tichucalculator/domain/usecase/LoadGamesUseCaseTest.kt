@@ -30,7 +30,7 @@ class LoadGamesUseCaseTest : TestCase() {
 
             observer.assertNoValues()
 
-            val game = Game.create(true, 70)
+            val game = Game.create(70)
             withContext(Dispatchers.Default) {
                 database.gameDao().insertGame(game)
             }

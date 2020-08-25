@@ -30,7 +30,7 @@ class DeleteGameUseCaseTest : TestCase() {
     fun testTestRun() = runBlocking {
         val deleteGameUseCase = DeleteGameUseCase(gameRepository = GameRepoImpl(database.gameDao()))
         val costTimeMillis = measureTimeMillis {
-            val params = Game.create(true, 70)
+            val params = Game.create( 70)
             withContext(Dispatchers.Default) {
                 database.gameDao().insertGame(params)
             }

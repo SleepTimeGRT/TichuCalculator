@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">TichuCalculator</string>
-    <string name="large_tichu">l</string>
-    <string name="small_tichu">s</string>
+    <string name="plus_hundred">+100</string>
+    <string name="minus_hundred">-100</string>
     <string name="one_two">w</string>
     <string name="save">save</string>
+    <string name="team_a">team a</string>
+    <string name="team_b">team b</string>
 </resources>

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:showIn="@layout/main_fragment">
+    android:backgroundTint="?attr/colorSurface"
+    android:layout_height="wrap_content">
 
     <include
         android:id="@+id/card_editor_a"
@@ -35,8 +31,17 @@
         app:layout_constraintStart_toEndOf="@+id/card_editor_a"
         app:layout_constraintTop_toTopOf="@id/card_editor_a" />
 
+<!--
+-25~125
+30
+-->
 
-    <SeekBar
+    <com.google.android.material.slider.Slider
+        android:valueFrom="0"
+        android:valueTo="32"
+        android:value="16"
+        app:labelBehavior="gone"
+        android:stepSize="1"
         android:id="@+id/point_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
