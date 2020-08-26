@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/keep_screen_toggle"
+        android:icon="@drawable/ic_outline_highlight_24"
+        android:title="@string/keep_screen_toggle"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/clear_all"
         android:icon="@drawable/ic_baseline_clear_all_24"
         android:title="@string/clear_all"
