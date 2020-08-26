@@ -13,10 +13,13 @@ import kr.minchulkim.tichucalculator.data.GameRepoImpl
 import kr.minchulkim.tichucalculator.data.room.AppDatabase
 import kr.minchulkim.tichucalculator.data.room.GameDao
 import kr.minchulkim.tichucalculator.domain.repository.GameRepository
+import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
 object RoomModule {
+
+    @Singleton
     @Provides
     fun provideAppDatabase(
         @ApplicationContext context: Context

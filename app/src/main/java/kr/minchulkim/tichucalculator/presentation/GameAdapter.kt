@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.minchulkim.tichucalculator.databinding.GameHistoryViewHolderBinding
 import kr.minchulkim.tichucalculator.entity.Game
 
-class GameAdapter : ListAdapter<Game, GameAdapter.GameViewHolder>(diffCallback) {
+class GameAdapter(val onItemClick: (Game) -> Unit) :
+    ListAdapter<Game, GameAdapter.GameViewHolder>(diffCallback) {
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Game>() {
             override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
@@ -24,7 +25,18 @@ class GameAdapter : ListAdapter<Game, GameAdapter.GameViewHolder>(diffCallback) 
 
     inner class GameViewHolder(private val binding: GameHistoryViewHolderBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private var game: Game? = null
+
+        init {
+            binding.root.setOnClickListener {
+                game?.let {
+                    onItemClick.invoke(it)
+                }
+            }
+        }
+
         fun bind(item: Game?) {
+            this.game = item
             binding.aPoint.text = item?.aPoint?.toString()
             binding.bPoint.text = item?.bPoint?.toString()
         }

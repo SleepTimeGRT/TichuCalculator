@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:backgroundTint="?attr/colorSurface"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurface">
 
     <include
         android:id="@+id/card_editor_a"
@@ -31,23 +31,23 @@
         app:layout_constraintStart_toEndOf="@+id/card_editor_a"
         app:layout_constraintTop_toTopOf="@id/card_editor_a" />
 
-<!--
--25~125
-30
--->
+    <!--
+    -25~125
+    30
+    -->
 
     <com.google.android.material.slider.Slider
-        android:valueFrom="0"
-        android:valueTo="32"
-        android:value="16"
-        app:labelBehavior="gone"
-        android:stepSize="1"
         android:id="@+id/point_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/horizontal_margin"
         android:layout_marginEnd="@dimen/horizontal_margin"
         android:layout_marginBottom="8dp"
+        android:stepSize="1"
+        android:value="16"
+        android:valueFrom="0"
+        android:valueTo="32"
+        app:labelBehavior="gone"
         app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -4,14 +4,12 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import kr.minchulkim.tichucalculator.domain.repository.GameRepository
 import kr.minchulkim.tichucalculator.domain.usecase.AddGameUseCase
 import kr.minchulkim.tichucalculator.entity.Game
 
 
 class PointEditorVM @ViewModelInject constructor(
     private val addGameUseCase: AddGameUseCase,
-    private val gameRepository: GameRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -50,7 +48,7 @@ class PointEditorVM @ViewModelInject constructor(
         if (value < 200) {
             val newValue = value + 100
             _aTichuPoint.value = newValue
-            if (newValue > 0) {
+            if (newValue > 0 && (_bTichuPoint.value ?: 0) > 0) {
                 _bTichuPoint.value = 0
             }
         }
@@ -61,7 +59,7 @@ class PointEditorVM @ViewModelInject constructor(
         if (value < 200) {
             val newValue = value + 100
             _bTichuPoint.value = newValue
-            if (newValue > 0) {
+            if (newValue > 0 && (_aTichuPoint.value ?: 0) > 0) {
                 _aTichuPoint.value = 0
             }
         }
@@ -100,17 +98,15 @@ class PointEditorVM @ViewModelInject constructor(
     }
 
     fun onClickSave() {
-        val game = buildGame()
-        gameRepository.addGame2(game).subscribe()
-//            addGameUseCase.run(game)
-        _aTrickPoint.value = 50
-        _bTrickPoint.value = 50
-        _aTichuPoint.value = 0
-        _bTichuPoint.value = 0
-        _eventClearEditor.value = null
-//        viewModelScope.launch {
-//
-//        }
+        viewModelScope.launch {
+            val game = buildGame()
+            addGameUseCase.run(game)
+            _aTrickPoint.value = 50
+            _bTrickPoint.value = 50
+            _aTichuPoint.value = 0
+            _bTichuPoint.value = 0
+            _eventClearEditor.value = null
+        }
     }
 
     private fun buildGame(): Game {

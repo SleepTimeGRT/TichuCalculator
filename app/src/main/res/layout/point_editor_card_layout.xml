@@ -7,6 +7,7 @@
     app:cardElevation="0dp"
     app:contentPaddingBottom="8dp"
     app:contentPaddingTop="16dp"
+    app:cardBackgroundColor="?attr/colorSurface"
     app:strokeColor="@color/material_on_surface_stroke"
     app:strokeWidth="1dp"
     tools:layout_marginEnd="@dimen/horizontal_margin"

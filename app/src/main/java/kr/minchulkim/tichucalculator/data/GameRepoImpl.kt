@@ -13,13 +13,14 @@ import javax.inject.Inject
 
 class GameRepoImpl @Inject constructor(private val gameDao: GameDao) : GameRepository {
 
-    override suspend fun addGame(game: Game) = gameDao.insertGame(game)
-    override fun addGame2(game: Game) = gameDao.insertGame2(game).subscribeOn(Schedulers.io())
+    override suspend fun addGame(game: Game) =
+        withContext(Dispatchers.IO) { gameDao.insertGame(game) }
 
-    override suspend fun deleteGame(gameId: Long) = gameDao.deleteGame(gameId)
+    override suspend fun deleteGame(gameId: Long) = withContext(Dispatchers.IO) {
+        gameDao.deleteGame(gameId)
+    }
 
-    override suspend fun clearGames() = gameDao.deleteAll()
+    override suspend fun clearGames() = withContext(Dispatchers.IO) { gameDao.deleteAll() }
 
     override fun getGameListFlow(): Flow<List<Game>> = gameDao.loadAllGames().flowOn(Dispatchers.IO)
-    override fun getGameListObservable(): Observable<List<Game>> = gameDao.loadAllGames2().subscribeOn(Schedulers.io())
 }
