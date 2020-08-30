@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "kr.minchulkim.tichucalculator"
+        applicationId "kr.minchulkim.tichucounter"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

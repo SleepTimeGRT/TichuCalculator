@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tichu Calculator</string>
+    <string name="app_name">Tichu Counter</string>
     <string name="plus_hundred">+100</string>
     <string name="minus_hundred">-100</string>
     <string name="save">save</string>

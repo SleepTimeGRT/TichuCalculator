@@ -25,14 +25,14 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_fragment"
-            android:name="kr.minchulkim.tichucalculator.presentation.MainFragment"
+            android:name="kr.minchulkim.tichucounter.presentation.MainFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/point_editor_fragment"
-            android:name="kr.minchulkim.tichucalculator.presentation.PointEditorFragment"
+            android:name="kr.minchulkim.tichucounter.presentation.PointEditorFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

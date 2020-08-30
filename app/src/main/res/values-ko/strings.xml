@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">티츄 계산기</string>
+    <string name="app_name">티츄 카운</string>
     <string name="plus_hundred">+100</string>
     <string name="minus_hundred">-100</string>
     <string name="save">저장</string>
