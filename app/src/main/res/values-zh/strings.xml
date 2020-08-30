@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tichu 柜台</string>
+    <string name="plus_hundred">+100</string>
+    <string name="minus_hundred">-100</string>
+    <string name="save">保存</string>
+    <string name="clear_all">全部清除</string>
+    <string name="delete_game_message">删除记录。</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="delete_all_message">删除所有记录。</string>
+    <string name="keep_screen_toggle">保持萤幕开启</string>
+    <string name="keep_screen_on_toast">保持屏幕打开。</string>
+</resources>

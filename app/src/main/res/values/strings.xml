@@ -6,10 +6,10 @@
     <string name="team_a" translatable="false">team a</string>
     <string name="team_b" translatable="false">team b</string>
     <string name="clear_all">clear all</string>
-    <string name="delete_game_message">delete history.</string>
+    <string name="delete_game_message">Delete history.</string>
     <string name="delete">delete</string>
     <string name="cancel">cancel</string>
-    <string name="delete_all_message">delete all history.</string>
-    <string name="keep_screen_toggle">keep screen light on toggle</string>
-    <string name="keep_screen_on_toast">keep screen light on</string>
+    <string name="delete_all_message">Delete all history.</string>
+    <string name="keep_screen_toggle">Keep screen light on toggle</string>
+    <string name="keep_screen_on_toast">Keep screen light on</string>
 </resources>
